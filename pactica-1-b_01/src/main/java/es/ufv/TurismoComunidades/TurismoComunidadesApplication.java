@@ -35,6 +35,11 @@ public class TurismoComunidadesApplication {
 					System.out.println(Utilidades.leerJson("TurismoComunidades.json"));
 					break;
 				case 2:
+					ArrayList<TurismoData> turismoDataJson= Utilidades.leerJson("TurismoComunidades.json");
+					HashMap<String,ArrayList<TurismoData>> turismoAgrupado;
+					turismoAgrupado= Utilidades.agrupar(turismoDataJson);
+					Utilidades.guardarJsonComunidades(turismoAgrupado,"Comunidades_agrupadas.json");
+
 
 					break;
 				case 3:
