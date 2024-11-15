@@ -43,7 +43,19 @@ public class TurismoComunidadesApplication {
 
 					break;
 				case 3:
-
+					System.out.println("Opción 3 seleccionada.");
+					System.out.println("Introduce la fecha en el siguiente formato: yyyy-MM-dd");
+					String fechaStr = scanner.nextLine();
+					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					try {
+						Date date = simpleDateFormat.parse(fechaStr);
+						ArrayList<TurismoData> turismoDataLista= Utilidades.leerJson("TurismoComunidades.json");
+						ArrayList<TurismoData> turismoDataFecha = Utilidades.filtrar(turismoDataLista,date);
+						System.out.println(turismoDataFecha);
+						System.out.println(turismoDataFecha.size());
+					} catch (ParseException e) {
+						System.out.println("Error en el formato de le fecha, intentalo otra vez");
+					}
 
 					break;
 				case 4:
