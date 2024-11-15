@@ -1,6 +1,8 @@
 package es.ufv.TurismoComunidades;
 
 
+import es.ufv.TurismoComunidades.utils.Utilidades;
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,7 +30,9 @@ public class TurismoComunidadesApplication {
 			scanner.nextLine();  // Limpiar el salto de línea
 			switch (option) {
 				case 1:
-
+					ArrayList<TurismoData> listaCsv = Utilidades.leerCsv("src/main/resources/TurismoComunidades.csv");
+					Utilidades.guardarjsonTurismo(listaCsv,"TurismoComunidades.json");
+					System.out.println(Utilidades.leerJson("TurismoComunidades.json"));
 					break;
 				case 2:
 
